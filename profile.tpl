@@ -16,7 +16,7 @@
 	<div class="card-body">
 
 		<p><font color='red'>{'credit declaration'|translate}</font></p>
-		<p><font color='red'>{'credit contact message'|translate:$EMAIL}</font></p>
+		<p><font color='red'>{'credit contact message'|translate:get_webmaster_mail_address()}</font></p>
 		<p><font color='orange'>{'credit extra message'|translate}</font></p>
 
 		<fieldset class="ppcreditsBuyCredits">
