@@ -1,7 +1,7 @@
+{if isset($smarty.session.pwg_uid)} {* only show if logged in, since they can only have credits if logged in anyway. *}
 {combine_script id='common' load='footer' require='jquery' path='admin/themes/default/js/common.js'}
 {combine_script id='jquery.confirm' load='footer' require='jquery' path='plugins/prepaid_credits/vendor/jquery-confirm.min.js'}
 {combine_css path="plugins/prepaid_credits/vendor/jquery-confirm.min.css"}
-
 {combine_css path="plugins/prepaid_credits/ppcredits.css"}
 
 {footer_script}
@@ -69,6 +69,13 @@ jQuery("#ppcreditsBuyPhoto a.buy").click(function(){
       useBootstrap: false,
       title: "{'Not enough credits!'|translate}",
       content: '{$MISSING_CREDITS_SENTENCE|escape:javascript}',
+    buttons: {
+        confirm: {
+            text: 'OK',
+            action: function () {
+            }
+        }
+    }
     });
   }
 
@@ -90,3 +97,5 @@ jQuery("#ppcreditsBuyPhoto a.buy").click(function(){
 {/foreach}
 </ul>
 </div>
+<br>
+{/if}

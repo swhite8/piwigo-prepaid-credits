@@ -358,7 +358,6 @@ add_event_handler('loc_begin_admin_page', 'ppcredits_add_users_column');
 function ppcredits_add_users_column()
 {
   global $template;
-  
   $template->set_prefilter('user_list', 'ppcredits_add_users_column_prefilter');
 }
 

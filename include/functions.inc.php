@@ -117,10 +117,10 @@ order_uuid : '.$_POST['custom'].'
   // post back to PayPal system to validate
   $header ="POST /cgi-bin/webscr HTTP/1.1\r\n";
   $header .="Content-Type: application/x-www-form-urlencoded\r\n";
-  $header .="Host: www.paypal.com\r\n";
+  $header .="Host: ipnpb.paypal.com:443\r\n";
   $header .="Content-Length: " . strlen($req) . "\r\n";
   $header .="Connection: close\r\n\r\n";
-  $fp = fsockopen('www.paypal.com', 80, $errno, $errstr, 30);
+  $fp = fsockopen ('ssl://ipnpb.paypal.com', 443, $errno, $errstr, 30);
 
   if (!$fp)
   {
@@ -484,10 +484,10 @@ function ppcredits_getFilename($row, $filesize=array())
   $filename = str_replace($search, $replace, $file_pattern);
 
   // functions
-  $filename = preg_replace_callback('#\$escape\((.*?)\)#', create_function('$m', 'return str2url($m[1]);'),   $filename);
-  $filename = preg_replace_callback('#\$upper\((.*?)\)#',  create_function('$m', 'return str2upper($m[1]);'), $filename);
-  $filename = preg_replace_callback('#\$lower\((.*?)\)#',  create_function('$m', 'return str2lower($m[1]);'), $filename);
-  $filename = preg_replace_callback('#\$strpad\((.*?),(.*?),(.*?)\)#', create_function('$m', 'return str_pad($m[1],$m[2],$m[3],STR_PAD_LEFT);'), $filename);
+  $filename = preg_replace('#$escape((.?))#', str2url($filename[1]), $filename);
+  $filename = preg_replace('#$upper((.?))#', str2upper($filename[1]), $filename);
+  $filename = preg_replace('#$lower((.?))#', str2lower($filename[1]), $filename);
+  $filename = preg_replace('#$strpad((.?),(.?),(.?))#', str_pad($filename,3,STR_PAD_LEFT), $filename);
 
   // cleanup
   $filename = preg_replace(

@@ -37,11 +37,14 @@ $lang['No worry!'] =  'No worry!';
 $lang['Buy more credits on your profile page.'] = 'Buy more credits on your profile page.';
 $lang['Not enough credits!'] = 'Not enough credits!';
 
-$lang['You have %d credits left'] = 'You have %d credits left';
+$lang['You have %d credits left'] = 'You have <font color="%s">%s</font> credits left';
 $lang['Buy'] = 'Buy';
 $lang['Pay on Paypal.com'] = 'Pay on Paypal.com';
 $lang['Credits history'] = 'Credits history';
 $lang['%u credits bought on %s (%s %s)'] = '%u credits bought on %s (%s %s)';
 $lang['%u credits spent for %s (size %s)'] = '%u credits spent for %s (size %s)';
 $lang['open it'] = 'open it';
+$lang['credit declaration'] = 'Purchase of image downloads using credits does not include any public or business use rights.<br>Personal use only, intended as a show of appreciation for the photographer.';
+$lang['credit contact message'] = '<a href="mailto:%s?subject=A message about photo credits">Contact me</a> for any non-personal use.';
+$lang['credit extra message'] = 'Paypal payments under testing. Let me know of any issues or to request some credits.';
 ?>
